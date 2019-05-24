@@ -144,7 +144,8 @@
 			$pro_del = new Product_detail();
 			$img= new Image();
 			$id= $_GET['id'];
-			// echo $id;
+			$linkImg = $img->findproduct($id)[0]['link'];
+			unlink($linkImg);
 			$data= $pro->destroy($id);
 			$data= $pro_del->delproduct('product_id', $id);
 			$data= $img->delproduct('product_id', $id);
