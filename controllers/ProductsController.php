@@ -59,7 +59,7 @@
 		}
 		function uploadimg(){
 			$id= $_POST['product_id'];
-
+			$pro_det= new Product_detail();
 			if($_FILES["file"]["error"] > 0){
 				echo "lỗi upload images";
 				die;			}
@@ -73,6 +73,7 @@
 			// print_r($data); die;
 			$img= new Image(); 
 			$upload= $img->insert($data);
+			$upload = $pro_det->find($id);
 			$response = json_encode($upload);
 			echo $response;
 			
@@ -132,14 +133,8 @@
 			$data['id']=$_POST['id'];
 			$data['name']=$_POST['name'];
 			$data['brand_id']=$_POST['brand'];
-			$data['updated_at']=$_POST['updated_at'];
-			// print_r($data); die;
-			// 
 			$res= $pro->update($data);
-			// die;
-			// $response= $brands->find($_GET['id']);
-			// print_r($response);
-			// die;
+			$res = $pro->find($data['id']);
 			$response = json_encode($res);
 			echo $response;
 		}

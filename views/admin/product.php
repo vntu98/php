@@ -14,7 +14,7 @@
 	<tr>
 		<th>Mã số</th>
 		<th>Tên</th>
-		<th >Hình ảnh</th>
+		<th>Hình ảnh</th>
 		<th>Hãng sản xuất</th>
 		<th>Ngày thêm mới</th>
 		<th>Hành động</th>
@@ -38,7 +38,7 @@
 				<button type="button" class="btn btn-success uploadimg" data-toggle="modal" data-target="#uploadimage" title="Thêm ảnh" data-id="<?php echo $value['id']; ?>"><i class="far fa-images"></i></button>
 				<button type="button" class="btn btn-primary editproduct" data-toggle="modal" data-target="#editproduct" title="Sửa thông tin" data-id="<?php echo $value['id']; ?>"><i class="far fa-edit"></i></button>
 				<button type="button" class="btn btn-warning showDetail" data-toggle="modal" data-target="#showDetail" title="Sửa thông tin" data-id="<?php echo $value['id']; ?>"><i class="fas fa-eye"></i></button>
-				 <button type="button" class="btn btn-danger delete-product" title="Xóa Sản phẩm" data-id= "<?php echo $value['id']; ?>"><i class="fas fa-trash-alt"></i></button>
+				<button type="button" class="btn btn-danger delete-product" title="Xóa Sản phẩm" data-id= "<?php echo $value['id']; ?>"><i class="fas fa-trash-alt"></i></button>
 				
 
                </td>
@@ -256,7 +256,6 @@
      						<form action="?mod=products&act=uploadimg" method="POST" role="form">
      							<div class="form-group">
      								<input id="file-1" type="file" name="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2" >
-
      							</div>
      						</form>
 						<div>
@@ -397,7 +396,6 @@
      			type:'post',
      			dataType:'JSON',
      			url: '?mod=products&act=edit&id='+id,
-     			
      			success: function (response){
      				$.each(response.product_detail,function(key,value){
      					var html= '<tr><td>'+value.id+'</td><td>'+value.color.name+'</td><td>'+value.price+'<td>'+value.quantity+'</td><td>'+value.screen+'</td><td>'+value.ram.name+'</td><td>'+value.created_at+'</td><td><button type="button" class="btn btn-warning editdetail" title="Sửa" data-id='+value.id+'  data-toggle="modal" data-target="#editDetail" ><i class="far fa-edit"></i></button> <button type="button" class="btn btn-danger deletedetail" title="Delete" data-id='+value.id+'><i class="fas fa-trash-alt"></i></button> </td></tr>';
@@ -406,7 +404,6 @@
      			},
                });
      	});
-
 
           $(document).on('click','.deletedetail', function(){
      		var id = $(this).data('id');
@@ -600,7 +597,6 @@
 		    	     },
 	  		})
      	});
-
 </script>
 
 
